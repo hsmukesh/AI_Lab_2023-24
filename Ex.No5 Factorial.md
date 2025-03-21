@@ -15,8 +15,8 @@ To  write  a logic program for finding the factorial of given number using SWI-P
 
 
 
-   factorial(0,1).
-    factorial(A,B) :-  
+           factorial(0,1).
+           factorial(A,B) :-  
            A > 0, 
            C is A-1,
            factorial(C,D),
