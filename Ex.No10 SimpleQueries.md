@@ -1,6 +1,6 @@
 # Ex.No: 10  Logic Programming –  Simple queries from facts and rules
-### DATE:                                                                            
-### REGISTER NUMBER : 
+### DATE: 19/03/2025                                                                           
+### REGISTER NUMBER : 212222060155
 ### AIM: 
 To write a prolog program to find the answer of query. 
 ###  Algorithm:
@@ -23,8 +23,30 @@ Construct the FOL representation for the following sentences <br>
 ### Program:
 
 
+### Task 1:
+Construct the FOL representation for the following sentences <br> 
+1.	John likes all kinds of food.  <br> 
+2.	Apples are food.  <br> 
+3.	Chicken is a food.  <br> 
+4.	Sue eats everything Bill eats. <br> 
+5.	 Bill eats peanuts  <br> 
+   Convert into clause form and Prove that John like Apple by using Prolog. <br> 
+### Program:
+
+         food(apples).
+         food(chicken).
+         food(peanuts).
+         likes(john, X) :-
+         food(X).
+         eats(bill, X) :-
+         food(X).
+         eats(sue, X) :-
+         eats(bill, X).
+
+
 ### Output:
 
+![image](https://github.com/user-attachments/assets/f0a5dda8-d016-4029-8e0b-9ee0f794c616)
 ### Task 2:
 Consider the following facts and represent them in predicate form: <br>              
 1.	Steve likes easy courses. <br> 
@@ -36,7 +58,18 @@ Convert the facts in predicate form to clauses and then prove by resolution: “
 ### Program:
 
 
+
+ likes(steve, X) :-
+          easy_course(X).
+          hard_course(science).
+          easy_course(X) :-
+          in_department(X, have_fun).
+          in_department(bk301, have_fun).
+
 ### Output:
+
+![image](https://github.com/user-attachments/assets/2bf70648-2ea7-4990-b243-0ce54cff7583)
+
 
 ### Task 3:
 Consider the statement <br> 
@@ -45,7 +78,28 @@ Convert to Clause form and prove west is criminal by using Prolog.<br>
 ### Program:
 
 
+
+             criminal(X):-
+       american(X),
+       weapon(Y),
+       hostile(Z),
+       sells(X,Y,Z).
+       weapon(Y):-
+       missile(Y).
+       hostile(Z):-
+       enemy(Z,america).
+       sells(west,Y,nano):-
+       missile(Y),
+       Thus the prolog programs were executed successfully and the answer of query was found.
+       owns(nano,Y).
+       missile(m).
+       owns(nano,m).
+       enemy(nano,america).
+       american(west).
+
 ### Output:
+ 
+![image](https://github.com/user-attachments/assets/87a86ff1-51bd-4177-898a-a162d0f412b3)
 
 ### Result:
 Thus the prolog programs were executed successfully and the answer of query was found.
