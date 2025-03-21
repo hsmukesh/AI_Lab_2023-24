@@ -57,9 +57,7 @@ Convert the facts in predicate form to clauses and then prove by resolution: “
 
 ### Program:
 
-
-
- likes(steve, X) :-
+          likes(steve, X) :-
           easy_course(X).
           hard_course(science).
           easy_course(X) :-
