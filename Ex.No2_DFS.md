@@ -14,6 +14,28 @@ To write a python program to implement Depth first Search.
 ### Program:
 
 
+# Using a python dictionary to act as an adjacent list
+    graph = { 
+       '5' : ['3','7'],
+       '3' : ['2','4'],
+       '7' : ['8'],
+       '2' : [],
+       '4' : ['8'],
+       '8' : []
+    }
+    visited = set() # Set to Keep of visited nodes of graph.
+   
+    def dfs(visited, graph, node): #function for dfs
+    if node not in visited:
+        print(node)
+        visited.add(node)
+        for neighbour in graph[node]:
+            dfs(visited, graph, neighbour)
+        # Driver Code
+        print("Following is the Depth-First Search")
+        dfs(visited, graph, '5')
+
+
 
 
 
@@ -25,7 +47,7 @@ To write a python program to implement Depth first Search.
 
 ### Output:
 
-
+![image](https://github.com/user-attachments/assets/8ac121f4-9c04-4c9a-866e-d2667cc7991f)
 
 ### Result:
 Thus the depth first search order was found sucessfully.
