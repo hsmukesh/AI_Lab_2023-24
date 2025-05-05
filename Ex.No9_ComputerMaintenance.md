@@ -26,8 +26,7 @@ Write a Prolog program to build a computer maintenance expert system.
 
 
 ### Output:
-
-
+![image](https://github.com/user-attachments/assets/6887ad15-6d36-4e40-973c-126f565be23f)
 
 ### Result:
 Thus the simple omputer maintenance expert system was built sucessfully.
