@@ -15,19 +15,39 @@ To write a logic program to design a circuit like half adder and half subtractor
 
 ### Program:
 
-
-
-
-
-
-
-
-
-
-
+xor(0,1,1).
+      xor(0,0,0).
+      xor(1,0,1).
+      xor(1,1,0).
+      and(1,1,1).
+      and(0,0,0).
+      and(0,1,0).
+      and(1,0,0).
+      not(0,1).
+      not(1,0).
+      or(0,1,1).
+      or(1,0,1).
+      or(0,0,0).
+      or(1,1,1).
+      halfadder(A,B,Sum,Carry):-
+          xor(A,B,Sum),
+          and(A,B,Carry).
+      halfsubtractor(A,B,Diff,Carry):-
+          xor(A,B,Diff),
+          not(A,C),
+          and(C,B,Carry).
+      fulladder(A,B,Cin,S,Cout):-
+          xor(A,B,X),
+          xor(X,Cin,S),
+          and(X,Cin,Y),
+          and(A,B,Z),
+          or(Y,Z,Cout).
+          
 ### Output:
+![image](https://github.com/user-attachments/assets/6d8cfe78-a10f-43ce-99cd-5878787786d7)
 
+![image](https://github.com/user-attachments/assets/a1fbb8aa-beee-4d3f-822a-6d5432035903)
 
-
+![image](https://github.com/user-attachments/assets/98328fe0-70c8-4a41-95d5-fa98712678a2)
 ### Result:
 Thus the truth table of circuit verified sucessfully.
