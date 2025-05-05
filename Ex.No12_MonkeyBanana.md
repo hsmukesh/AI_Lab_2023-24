@@ -24,6 +24,7 @@ Step 7: Stop the program.<br>
 ### Input 
 
 ### Output/Plan:
+![image](https://github.com/user-attachments/assets/80e0324d-fdda-4dd6-951f-b5a990a82c46)
 
 
 
