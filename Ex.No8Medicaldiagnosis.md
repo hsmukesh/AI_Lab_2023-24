@@ -26,8 +26,7 @@ Write a Prolog program to build a medical Diagnosis Expert System.
 
 
 ### Output:
-
-
+![image](https://github.com/user-attachments/assets/9bcdd84a-3520-44c0-a5ea-ed5e12462443)
 
 ### Result:
 Thus the simple medical diagnosis system was built sucessfully.
