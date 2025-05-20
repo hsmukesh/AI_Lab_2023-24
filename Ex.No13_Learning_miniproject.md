@@ -1,6 +1,6 @@
 # Ex.No: 13 Mini project - Gas Sensor Array Data Analysis for Low-Concentration Detection
 ### DATE:                                                                            
-### REGISTER NUMBER : 212222060025
+### REGISTER NUMBER : 212222060155
 ### AIM:
 To analyze and process data from a gas sensor array to accurately detect and classify gases at low concentrations using data preprocessing and machine learning techniques.
 ###  Algorithm:
@@ -17,7 +17,7 @@ Step 10:Evaluate model performance using accuracy, confusion matrix, and classif
 Step 11:Visualize key results such as predictions, feature importance, or PCA scatter plot.
 
 ### Program:
-
+```
 import pandas as pd
 from sklearn.model_selection import train_test_split, GridSearchCV, cross_val_score
 from sklearn.preprocessing import LabelEncoder, StandardScaler
@@ -163,8 +163,7 @@ plt.ylabel('Cumulative Explained Variance')
 plt.grid()
 plt.tight_layout()
 plt.show()
-
-
+```
 ### Output:
 
 
