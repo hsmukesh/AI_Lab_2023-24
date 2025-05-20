@@ -19,61 +19,6 @@ Step 11:Visualize key results such as predictions, feature importance, or PCA sc
 ### Program:
 ```
 import pandas as pd
-from sklearn.model_selection import train_test_split, GridSearchCV, cross_val_score
-from sklearn.preprocessing import LabelEncoder, StandardScaler
-from sklearn.decomposition import PCA
-from sklearn.ensemble import RandomForestClassifier
-from sklearn.metrics import classification_report, accuracy_score
-import matplotlib.pyplot as plt
-
-
-
-# Standardize features
-scaler = StandardScaler()
-X_scaled = scaler.fit_transform(X)
-
-# PCA to retain 95% variance
-pca = PCA(n_components=0.95)
-X_pca = pca.fit_transform(X_scaled)
-
-print(f"PCA reduced to {X_pca.shape[1]} components")
-
-# Encode target labels
-le = LabelEncoder()
-y_encoded = le.fit_transform(y)
-
-# Split for final evaluation after CV
-X_train, X_test, y_train, y_test = train_test_split(X_pca, y_encoded, test_size=0.2, random_state=42)
-
-# RandomForest with GridSearchCV for hyperparameter tuning
-param_grid = {
-    'n_estimators': [100, 200, 300],
-    'max_depth': [None, 10, 20, 30],
-    'min_samples_split': [2, 5, 10],
-    'min_samples_leaf': [1, 2, 4]
-}
-
-rf = RandomForestClassifier(random_state=42)
-
-grid_search = GridSearchCV(estimator=rf, param_grid=param_grid, cv=5, n_jobs=-1, scoring='accuracy')
-grid_search.fit(X_train, y_train)
-
-print(f"Best Parameters: {grid_search.best_params_}")
-
-# Best model evaluation on test set
-best_model = grid_search.best_estimator_
-y_pred = best_model.predict(X_test)
-
-print("\nTest Accuracy:", accuracy_score(y_test, y_pred))
-print("\nClassification Report:\n", classification_report(y_test, y_pred, target_names=le.classes_))
-
-# Cross-validation score on the entire dataset for robustness
-cv_scores = cross_val_score(best_model, X_pca, y_encoded, cv=5, scoring='accuracy')
-print(f"\n5-Fold Cross-Validation Accuracy: {cv_scores.mean():.4f} (+/- {cv_scores.std():.4f})")
-
-
-
-import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
 import seaborn as sns
@@ -163,8 +108,77 @@ plt.ylabel('Cumulative Explained Variance')
 plt.grid()
 plt.tight_layout()
 plt.show()
+
 ```
+###Code to generate table:
+```
+
+import pandas as pd
+from sklearn.model_selection import train_test_split, GridSearchCV, cross_val_score
+from sklearn.preprocessing import LabelEncoder, StandardScaler
+from sklearn.decomposition import PCA
+from sklearn.ensemble import RandomForestClassifier
+from sklearn.metrics import classification_report, accuracy_score
+import matplotlib.pyplot as plt
+
+
+
+# Standardize features
+scaler = StandardScaler()
+X_scaled = scaler.fit_transform(X)
+
+# PCA to retain 95% variance
+pca = PCA(n_components=0.95)
+X_pca = pca.fit_transform(X_scaled)
+
+print(f"PCA reduced to {X_pca.shape[1]} components")
+
+# Encode target labels
+le = LabelEncoder()
+y_encoded = le.fit_transform(y)
+
+# Split for final evaluation after CV
+X_train, X_test, y_train, y_test = train_test_split(X_pca, y_encoded, test_size=0.2, random_state=42)
+
+# RandomForest with GridSearchCV for hyperparameter tuning
+param_grid = {
+    'n_estimators': [100, 200, 300],
+    'max_depth': [None, 10, 20, 30],
+    'min_samples_split': [2, 5, 10],
+    'min_samples_leaf': [1, 2, 4]
+}
+
+rf = RandomForestClassifier(random_state=42)
+
+grid_search = GridSearchCV(estimator=rf, param_grid=param_grid, cv=5, n_jobs=-1, scoring='accuracy')
+grid_search.fit(X_train, y_train)
+
+print(f"Best Parameters: {grid_search.best_params_}")
+
+# Best model evaluation on test set
+best_model = grid_search.best_estimator_
+y_pred = best_model.predict(X_test)
+
+print("\nTest Accuracy:", accuracy_score(y_test, y_pred))
+print("\nClassification Report:\n", classification_report(y_test, y_pred, target_names=le.classes_))
+
+# Cross-validation score on the entire dataset for robustness
+cv_scores = cross_val_score(best_model, X_pca, y_encoded, cv=5, scoring='accuracy')
+print(f"\n5-Fold Cross-Validation Accuracy: {cv_scores.mean():.4f} (+/- {cv_scores.std():.4f})")
+
+```
+
 ### Output:
+![WhatsApp Image 2025-05-13 at 19 30 56_3787854c](https://github.com/user-attachments/assets/3dc1d5ee-3d2d-4543-962b-d6b317917dd6)
+![WhatsApp Image 2025-05-13 at 19 30 56_257abce6](https://github.com/user-attachments/assets/add5bd8c-fa9e-4af2-8247-226a46101987)
+![WhatsApp Image 2025-05-13 at 19 30 57_7663438c](https://github.com/user-attachments/assets/a882e6ef-dcd1-491f-bd6f-37eff7a90298)
+![WhatsApp Image 2025-05-13 at 19 30 57_6b62a1ae](https://github.com/user-attachments/assets/92dc5bcd-929c-4384-b74f-1d4ff5ccdf29)
+![WhatsApp Image 2025-05-13 at 19 30 57_c4e7c7ea](https://github.com/user-attachments/assets/f1f414cb-d6bd-4a21-bd33-f6281305c90f)
+
+###VALIDATION TABLE:
+
+![WhatsApp Image 2025-05-20 at 13 23 55_94c2cb97](https://github.com/user-attachments/assets/f0b64550-7e87-486c-aae7-e234f8392be4)
+
 
 
 ### Result:
