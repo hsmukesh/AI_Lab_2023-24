@@ -69,7 +69,7 @@ Convert to Clause form and prove west is criminal by using Prolog.<br>
 
 
 
-             criminal(X):-
+       criminal(X):-
        american(X),
        weapon(Y),
        hostile(Z),
