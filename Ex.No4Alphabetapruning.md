@@ -1,4 +1,4 @@
-# Ex.No: 4   Implementation of Alpha Beta Pruning 
+# Ex.No: 4   Implementation of Alpha Beta Pruning
 ### DATE: 18/03/2025                                                                      
 ### REGISTER NUMBER : 212222060155
 ### AIM: 
