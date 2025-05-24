@@ -23,14 +23,6 @@ Construct the FOL representation for the following sentences <br>
 ### Program:
 
 
-### Task 1:
-Construct the FOL representation for the following sentences <br> 
-1.	John likes all kinds of food.  <br> 
-2.	Apples are food.  <br> 
-3.	Chicken is a food.  <br> 
-4.	Sue eats everything Bill eats. <br> 
-5.	 Bill eats peanuts  <br> 
-   Convert into clause form and Prove that John like Apple by using Prolog. <br> 
 ### Program:
 
          food(apples).
